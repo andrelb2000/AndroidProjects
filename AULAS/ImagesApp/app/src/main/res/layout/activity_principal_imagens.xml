@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="br.com.amm.imagesapp.PrincipalImagens">
+
+    <Button
+        android:id="@+id/buttonIMG1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Image 1"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/buttonIMG3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Image2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonIMG2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="IMAGE 3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewIMG1"
+        android:layout_width="325dp"
+        android:layout_height="330dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:layout_editor_absoluteY="203dp" />
+
+</LinearLayout>
