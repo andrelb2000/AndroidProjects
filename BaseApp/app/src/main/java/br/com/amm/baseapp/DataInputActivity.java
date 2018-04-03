@@ -25,15 +25,10 @@ public class DataInputActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 TextView tv = (TextView) findViewById(R.id.editTextNome);
                 dados.putString("NOME",tv.getText().toString());
                 dataShowIntent.putExtras(dados);
-
-
                 startActivity(dataShowIntent);
-
             }
         });
 

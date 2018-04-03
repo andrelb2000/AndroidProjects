@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.amm.aula5ex1_alertas.PainelAlertasActivity">
+
+    <Button
+        android:id="@+id/IDbutton0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Alerta sem Opcoes"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="28dp" />
+
+    <Button
+        android:id="@+id/IDbutton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Alerta Sim  Nao"
+        app:layout_constraintTop_toBottomOf="@+id/IDbutton0"
+        tools:layout_editor_absoluteX="28dp" />
+
+    <Button
+        android:id="@+id/IDbutton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Alerta 3"
+        app:layout_constraintTop_toBottomOf="@+id/IDbutton2"
+        tools:layout_editor_absoluteX="28dp" />
+
+    <Button
+        android:id="@+id/IDbutton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Toast posicionado"
+        app:layout_constraintTop_toBottomOf="@+id/IDbutton3"
+        tools:layout_editor_absoluteX="28dp" />
+
+    <Button
+        android:id="@+id/IDbutton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text=" Toast Mensagem"
+        app:layout_constraintTop_toBottomOf="@+id/IDbutton4"
+        tools:layout_editor_absoluteX="28dp" />
+
+    <TextView
+        android:id="@+id/IDtextView2"
+        android:layout_width="135dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="20dp"
+        android:text="Alerta 2"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/IDbutton2"
+        app:layout_constraintTop_toBottomOf="@+id/IDeditText0" />
+
+    <TextView
+        android:id="@+id/IDtextView3"
+        android:layout_width="138dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="20dp"
+        android:text="Alerta 3"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/IDbutton3"
+        app:layout_constraintTop_toBottomOf="@+id/IDtextView2" />
+
+    <TextView
+        android:id="@+id/IDtextView4"
+        android:layout_width="152dp"
+        android:layout_height="39dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="16dp"
+        android:text="Alerta 4"
+        android:textSize="24sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/IDbutton4"
+        app:layout_constraintTop_toBottomOf="@+id/IDtextView3" />
+
+    <EditText
+        android:id="@+id/IDeditText0"
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="28dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Mensagem"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/IDbutton0"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/IDeditText5"
+        android:layout_width="167dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/IDbutton5"
+        app:layout_constraintTop_toBottomOf="@+id/IDtextView4"
+        app:layout_constraintVertical_bias="0.004" />
+</android.support.constraint.ConstraintLayout>
