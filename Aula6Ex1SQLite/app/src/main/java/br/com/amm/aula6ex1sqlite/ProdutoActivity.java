@@ -22,12 +22,21 @@ public class ProdutoActivity extends AppCompatActivity {
     private ArrayList<Produto> listaProduto;
     private ArrayAdapter<Produto> adapterProduto;
 
+    private ListView pesquisaListView;
+    private ArrayList<Produto> listaPesquisa;
+    private ArrayAdapter<Produto> adapterPesquisa;
+
+
     private Button insereButton;
     private Button carregaButton;
     private Button cleanButton;
 
     private Button pesquisarButton;
-    private EditText varPesqEditText;
+
+    private Button limpaListaButton;
+    private Button updateButton;
+    private Button deleteButton;
+
 
     private GerenteBanco gerenteBanco;
 
@@ -52,13 +61,23 @@ public class ProdutoActivity extends AppCompatActivity {
                        listaProduto);
         produtoListView.setAdapter(adapterProduto);
         ///////////////////////////////
+        pesquisaListView = (ListView) findViewById(R.id.IDlistViewResult);
+        listaPesquisa    = new ArrayList<Produto>();
+        adapterPesquisa  = new ArrayAdapter<Produto>(this,
+                android.R.layout.simple_expandable_list_item_1,
+                listaPesquisa);
+        pesquisaListView.setAdapter(adapterPesquisa);
+        ///////////////////////////////
+
         insereButton  = (Button) findViewById(R.id.IDbuttonInserir);
         carregaButton = (Button) findViewById(R.id.IDbuttonCarregar);
         cleanButton   = (Button) findViewById(R.id.IDbuttonCLEAN);
 
         pesquisarButton = (Button) findViewById(R.id.IDbuttonPESQ);
-        varPesqEditText = (EditText) findViewById(R.id.IDeditTextNOMEPESQ);
 
+        limpaListaButton = (Button) findViewById(R.id.IDbuttonLimparLista);
+        updateButton     = (Button) findViewById(R.id.IDbuttonUPDATE);
+        deleteButton     = (Button) findViewById(R.id.IDbuttonDELETAR);
     }
 
     public void inicializarListener(){
@@ -71,42 +90,144 @@ public class ProdutoActivity extends AppCompatActivity {
                 double tempPreco = Double.parseDouble(precoString);
                 Produto p = new Produto(tempNome,tempPreco);
                 listaProduto.add(p);
-                adapterProduto.setNotifyOnChange(true);
                 try{
                     insereBanco(p);
                 }catch (Exception e){
                     //// codigo alerta
                 }
+                adapterProduto.notifyDataSetChanged();
             }
         });
         carregaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try{
-
                     listaProduto.clear();
-
+                    adapterProduto.clear();
                     selectAll();
-                    adapterProduto.setNotifyOnChange(true);
+                    adapterProduto.notifyDataSetChanged();
                 }catch (Exception e){
+                }
+            }
+        });
 
+        pesquisarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    listaPesquisa.clear();
+                    adapterPesquisa.clear();
+                    select(nomeProdEditText.getText().toString());
+                    adapterPesquisa.notifyDataSetChanged();
+                }catch (Exception e){
+                }
+            }
+        });
+
+        cleanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    listaProduto.clear();
+                    adapterProduto.clear();
+                    adapterProduto.notifyDataSetChanged();
+
+                    listaPesquisa.clear();
+                    adapterPesquisa.clear();
+                    adapterPesquisa.notifyDataSetChanged();
+
+                    cleanTable(GerenteBanco.NOME_TABELA);
+                }catch (Exception e){
+                }
+            }
+        });
+
+        limpaListaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listaProduto.clear();
+                adapterProduto.clear();
+                adapterProduto.notifyDataSetChanged();
+
+                listaPesquisa.clear();
+                adapterPesquisa.clear();
+                adapterPesquisa.notifyDataSetChanged();
+            }
+        });
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    listaProduto.clear();
+                    adapterProduto.clear();
+                    deleteProduto(GerenteBanco.NOME_TABELA,
+                            nomeProdEditText.getText().toString());
+                    selectAll();
+                    adapterProduto.notifyDataSetChanged();
+                }catch (Exception e){
+                }
+            }
+        });
+
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    String tempNome = nomeProdEditText.getText().toString();
+                    String precoString = precoProdEditText.getText().toString();
+                    double tempPreco = Double.parseDouble(precoString);
+                    Produto p = new Produto(tempNome,tempPreco);
+                    listaProduto.clear();
+                    adapterProduto.clear();
+                    updateProduto(GerenteBanco.NOME_TABELA,
+                                nomeProdEditText.getText().toString(),
+                                p);
+                    selectAll();
+                    adapterProduto.notifyDataSetChanged();
+                }catch (Exception e){
                 }
             }
         });
 
 
-    pesquisarButton.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            try{
-                listaProduto.clear();
-                select(varPesqEditText.getText().toString());
-                adapterProduto.setNotifyOnChange(true);
-            }catch (Exception e){
-            }
-        }
-    });
     }
+
+    protected void cleanTable(String table) throws Exception{
+        SQLiteDatabase db = gerenteBanco.getWritableDatabase();
+        db.delete(table, null,null);
+        db.close();
+    }
+
+
+    protected void deleteProduto(String table,String nome) throws Exception{
+        SQLiteDatabase db = gerenteBanco.getWritableDatabase();
+            /// Acrescentando Clausula WHERE ///
+            String where = "NOME = ?";
+            /// Acrescentando a parte que vai na "?" ///
+            String[] varInterrogacao = new String[1];
+            varInterrogacao[0] = nome;
+            db.delete(table,where,varInterrogacao);
+        db.close();
+    }
+
+    protected void updateProduto(String table,String nome,
+                                 Produto p) throws Exception{
+        SQLiteDatabase db = gerenteBanco.getWritableDatabase();
+            ContentValues reg = new ContentValues();
+            reg.put("NOME",p.getNomeProduto());
+            reg.put("PRECO",p.getPrecoProduto());
+
+            /// Acrescentando Clausula WHERE ///
+            String where = "NOME = ?";
+            /// Acrescentando a parte que vai na "?" ///
+            String[] varInterrogacao = new String[1];
+            varInterrogacao[0] = nome;
+            db.update(table,reg,where,varInterrogacao);
+        db.close();
+    }
+
+
 
 
     protected void insereBanco(Produto p) throws Exception{
@@ -128,9 +249,6 @@ public class ProdutoActivity extends AppCompatActivity {
             System.out.print("Nao retornou nada");
         }else{
             c.moveToFirst();
-
-
-
         }
 
         while (c!=null){
@@ -138,9 +256,6 @@ public class ProdutoActivity extends AppCompatActivity {
             double preco = c.getDouble(1);
             Produto p = new Produto(nome,preco);
             listaProduto.add(p);
-            adapterProduto.setNotifyOnChange(true);
-
-
             c.moveToNext();
         }
 
@@ -173,8 +288,7 @@ public class ProdutoActivity extends AppCompatActivity {
                 String nome = c.getString(0);
                 double preco = c.getDouble(1);
                 Produto p = new Produto(nome,preco);
-                listaProduto.add(p);
-                adapterProduto.setNotifyOnChange(true);
+                listaPesquisa.add(p);
                 c.moveToNext();
             }
         }
