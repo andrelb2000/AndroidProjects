@@ -1,0 +1,169 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.amm.alula8exrest.CEPFragment">
+
+
+    <TextView
+        android:id="@+id/textViewF1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="CEP:"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <EditText
+        android:id="@+id/IDF1editTextCEP"
+        android:layout_width="213dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="20510100"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/textViewF1"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <Button
+        android:id="@+id/IDF1buttonCEP"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Pesquisa"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/IDF1editTextCEP"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <TextView
+        android:id="@+id/textView2F1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Logradouro"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IDF1editTextCEP" />
+
+    <EditText
+        android:id="@+id/IDF1editTextRUA"
+        android:layout_width="157dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView2F1"
+        app:layout_constraintTop_toBottomOf="@+id/IDF1editTextCEP" />
+
+    <TextView
+        android:id="@+id/textView3F1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:text="Bairro"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2F1" />
+
+    <TextView
+        android:id="@+id/textView4F1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Cidade"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/IDF1editTextBAIRRO"
+        app:layout_constraintTop_toBottomOf="@+id/IDF1editTextRUA" />
+
+    <EditText
+        android:id="@+id/IDF1editTextBAIRRO"
+        android:layout_width="66dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/textView3F1"
+        app:layout_constraintTop_toBottomOf="@+id/IDF1editTextRUA" />
+
+    <EditText
+        android:id="@+id/IDF1editTextCIDADE"
+        android:layout_width="107dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/textView4F1"
+        app:layout_constraintTop_toBottomOf="@+id/IDF1editTextRUA" />
+
+    <EditText
+        android:id="@+id/IDF1editTextUF"
+        android:layout_width="31dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/textView6F1"
+        app:layout_constraintTop_toBottomOf="@+id/IDF1editTextRUA" />
+
+    <TextView
+        android:id="@+id/textView6F1"
+        android:layout_width="10dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text=" - "
+        app:layout_constraintStart_toEndOf="@+id/IDF1editTextCIDADE"
+        app:layout_constraintTop_toBottomOf="@+id/IDF1editTextRUA" />
+
+    <EditText
+        android:id="@+id/IDF1editTextComp"
+        android:layout_width="86dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/IDF1editTextRUA"
+        app:layout_constraintTop_toBottomOf="@+id/IDF1editTextCEP" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="355dp"
+        android:layout_height="38dp"
+        android:editable="false"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=" ----- FRAGMENTO DE CEP  -----"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="10sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
