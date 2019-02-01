@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.amm.aula1ex1.Aula1Ex1Activity">
+
+    <TextView
+        android:id="@+id/IDhelloTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="44dp"
+        android:text="Hello World!"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/IDfrase2textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/IDfrase2textView"
+        android:layout_width="319dp"
+        android:layout_height="92dp"
+        android:layout_marginBottom="172dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="48dp"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/IDTrocaTextobutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Troca Texto"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="392dp" />
+
+</android.support.constraint.ConstraintLayout>

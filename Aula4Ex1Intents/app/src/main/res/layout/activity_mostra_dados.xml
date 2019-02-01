@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.amm.aula4ex1intents.MostraDadosActivity">
+
+    <TextView
+        android:id="@+id/IDNomeTextView"
+        android:layout_width="136dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Nome"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/IDAPTtextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <TextView
+        android:id="@+id/IDCEPtextView"
+        android:layout_width="134dp"
+        android:layout_height="29dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:text="CEP"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/IDNUMtextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toEndOf="@+id/IDNomeTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.574" />
+
+    <TextView
+        android:id="@+id/IDNUMtextView"
+        android:layout_width="133dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="48dp"
+        android:text="Numero"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/IDAPTtextView"
+        tools:layout_editor_absoluteY="166dp" />
+
+    <TextView
+        android:id="@+id/IDAPTtextView"
+        android:layout_width="137dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="16dp"
+        android:text="Apartamento"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteY="166dp" />
+
+    <TextView
+        android:id="@+id/IDTeltextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="112dp"
+        android:text="Telefone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IDNUMtextView" />
+</android.support.constraint.ConstraintLayout>
