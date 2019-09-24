@@ -9,20 +9,19 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
 public class GerenciadorBanco extends SQLiteOpenHelper {
-
     public GerenciadorBanco(Context context) {
         super(context,"ESTADODB",null, 1);
+    }
+    public void onCreate(SQLiteDatabase db) {
+        String sql = "CREATE TABLE TB_ESTADO(NOME TEXT," +
+                " POPULACAO INTEGER)";
+        db.execSQL(sql);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
     @Override
-    public void onCreate(SQLiteDatabase db) {
-       String sql = "CREATE TABLE TB_ESTADO(NOME TEXT," +
-                                          " POPULACAO INTEGER)";
-       db.execSQL(sql);
-    }
     public void inserir(EstadoModelo estado){
         SQLiteDatabase db = getWritableDatabase();
         ContentValues registro = new ContentValues();
@@ -34,9 +33,10 @@ public class GerenciadorBanco extends SQLiteOpenHelper {
         lista.clear();
         SQLiteDatabase db = getReadableDatabase();
         String colunas[] = new String[2];
-        colunas[0] = "NOME";
-        colunas[1] = "POPULACAO";
-        Cursor cursor =  db.query("TB_ESTADO",colunas,null,null,null,null,null);
+        colunas[0] = "NOME";  colunas[1] = "POPULACAO";
+        Cursor cursor =  db.query("TB_ESTADO",colunas,
+                                  null,null,
+                                  null,null,null);
         boolean proximo;
         if(cursor == null){
             return;

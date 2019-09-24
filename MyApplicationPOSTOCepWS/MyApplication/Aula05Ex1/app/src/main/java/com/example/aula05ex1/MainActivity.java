@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
     private GerenciadorBanco      gerenciadorBanco;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         inicializaComponentes();
         inicializaListeners();
     }
-
     public void inicializaComponentes(){
         estadoEditText     = findViewById(R.id.ID_ESTADOeditText);
         populacaoEditText  = findViewById(R.id.ID1_POPeditText2);
